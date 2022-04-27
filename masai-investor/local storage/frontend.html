@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+     
+
+    </style> 
+</head>
+<body>
+    <h1>Masai Investors</h1>
+    <div id="container"></div>
+    
+</body>
+</html>
+<script>
+    var investorsArr=JSON.parse(localStorage.getItem("investorsData"));
+
+
+    investorsArr.forEach(function(elem){
+
+        var box=document.createElement("div");
+        // box.setAttribute("id",box)
+        
+
+        var avatar=document.createElement("img")
+        avatar.setAttribute("src",elem.investorImg);
+        
+
+        var name=document.createElement("h3")
+        name.innerText=elem.investorName;
+
+        var role=document.createElement("p")
+        role.innerText=elem.investorRole;
+
+        var logo=document.createElement("img")
+        logo.setAttribute("src",elem.investorLogo)
+
+        // document.querySelector("#investorform").reset();
+        // logo.setAttribute("id",log)
+
+        box.append(avatar,name,role,logo)
+        document.querySelector("#container").append(box);
+    });
+    
+
+</script>
